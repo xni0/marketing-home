@@ -1,56 +1,79 @@
+// IMPORTAMOS EL LOGO
+import logoNexo from '../../assets/images/icono-nexo-white-large-1x.webp';
+
+// IMPORTAMOS TUS ICONOS SOCIALES
+import iconLinkedin from '../../assets/icons/ant-design_linkedin-filled.png';
+import iconTiktok from '../../assets/icons/ic_baseline-tiktok.png';
+import iconX from '../../assets/icons/ri_twitter-x-fill.png';
+import iconInsta from '../../assets/icons/mdi_instagram.png';
+
 const Footer = () => {
-  // Definimos los colores para el truco del gap
-  const gridLineColor = "bg-black dark:bg-white"; // El color de las líneas (fondo del contenedor)
-  const itemBgColor = "bg-[#F5F5F5] dark:bg-black"; // El color de fondo de cada columna
-  const textColor = "text-black dark:text-white";
-  const borderColor = "border-black dark:border-white";
+  // Clase común para los iconos sociales (LinkedIn, Insta, TikTok)
+  // CAMBIO AQUÍ: De w-5 h-5 a w-6 h-6 (un poco más grandes)
+  const socialIconClass = "w-6 h-6 object-contain dark:invert hover:scale-110 transition-transform";
 
   return (
-    <footer className="font-sans transition-colors duration-300">
+    <footer className="w-full bg-[#F3F4F6] dark:bg-black text-black dark:text-white border-t border-black dark:border-white font-sans transition-colors duration-300">
       
-      {/* === CONTENEDOR GRID (EL TRUCO) === 
-          1. grid-cols-3: Tres columnas.
-          2. bg-black (gridLineColor): El fondo es negro.
-          3. gap-px: Dejamos 1 pixel de hueco entre columnas.
-          4. border-t: Borde superior.
-          RESULTADO: El negro se ve por el hueco de 1px, creando la línea.
-      */}
-      <div className={`grid grid-cols-1 md:grid-cols-3 gap-px border-t ${borderColor} ${gridLineColor}`}>
+      {/* GRID DE 3 COLUMNAS */}
+      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black dark:divide-white">
         
-        {/* === COLUMNA 1 === */}
-        {/* IMPORTANTE: Cada columna debe tener su propio color de fondo (itemBgColor) para tapar el negro del padre, excepto en el gap */}
-        <div className={`${itemBgColor} p-10 flex flex-col justify-between h-full min-h-[250px]`}>
-          <div className={`w-24 h-24 border ${borderColor} flex items-center justify-center`}>
-             <span className={`text-5xl font-thin ${textColor}`}>✕</span>
-          </div>
-          <div className={`text-[10px] leading-relaxed ${textColor} font-medium mt-8`}>
-             <p>Lorem ipsum dolor</p>
-             <p>Lorem ipsum</p>
-             <p className="mt-4 opacity-70">@Lorem ipsum dolor, 2025</p>
-          </div>
-        </div>
-
-        {/* === COLUMNA 2 === */}
-        <div className={`${itemBgColor} p-10 flex flex-col h-full min-h-[250px]`}>
-          <h4 className={`font-bold text-sm uppercase mb-6 ${textColor}`}>Lorem ipsum dolor, 1234</h4>
-          <div className="flex flex-wrap gap-4 mb-8">
-            {[1,2,3,4,5].map(i => (
-              <div key={i} className={`w-10 h-10 border ${borderColor} flex items-center justify-center hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors cursor-pointer`}>
-                <span className={`text-xl font-light ${textColor} hover:text-inherit`}>✕</span>
-              </div>
-            ))}
-          </div>
-          <p className={`text-xs mt-auto ${textColor} font-semibold`}>Loremipsum@dolor.com</p>
-        </div>
-
-        {/* === COLUMNA 3 === */}
-        <div className={`${itemBgColor} p-10 flex flex-col h-full min-h-[250px]`}>
-           <h4 className={`font-bold text-sm uppercase mb-6 ${textColor}`}>Lorem ipsum dolor</h4>
-           <div className={`flex flex-col gap-3 text-[10px] ${textColor} font-medium`}>
-              <a href="#" className="hover:underline">Lorem ipsum dolor</a>
-              <a href="#" className="hover:underline">Lorem ipsum dolor</a>
-              <a href="#" className="hover:underline">Lorem ipsum dolor</a>
+        {/* === COLUMNA 1: LOGO E INFO === */}
+        <div className="p-10 flex flex-col justify-between min-h-[300px]">
+           {/* LOGO NEXO */}
+           <div className="mb-6">
+             <img 
+               src={logoNexo} 
+               alt="NEXO" 
+               className="w-24 h-auto invert dark:invert-0 transition-all duration-300" 
+             />
            </div>
+
+           <div className="text-[11px] uppercase font-bold tracking-widest space-y-1 opacity-90">
+             <p>Agencia Digital NEXO</p>
+             <p>Calle Gran Vía, 28</p>
+             <p>28013 Madrid, España</p>
+             <p className="mt-6 text-[10px] opacity-60">© Nexo Digital S.L. 2025</p>
+           </div>
+        </div>
+
+        {/* === COLUMNA 2: REDES Y CONTACTO === */}
+        <div className="p-10 flex flex-col justify-center gap-8">
+           <div>
+               <h3 className="font-black text-sm uppercase tracking-widest mb-4">
+                 Síguenos
+               </h3>
+               {/* ICONOS SOCIALES (TAMAÑO AUMENTADO) */}
+               <div className="flex items-center gap-6">
+                  <a href="#"><img src={iconLinkedin} alt="LinkedIn" className={socialIconClass} /></a>
+                  <a href="#"><img src={iconInsta} alt="Instagram" className={socialIconClass} /></a>
+                  <a href="#"><img src={iconTiktok} alt="TikTok" className={socialIconClass} /></a>
+                  {/* El de X también aumenta un poco (a w-5) para compensar */}
+                  <a href="#"><img src={iconX} alt="X" className="w-5 h-5 object-contain dark:invert hover:scale-110 transition-transform" /></a>
+               </div>
+           </div>
+
+           <div>
+               <h3 className="font-black text-sm uppercase tracking-widest mb-1">
+                 Contacto
+               </h3>
+               <a href="mailto:hola@nexo.com" className="text-xs font-medium hover:underline">
+                 hola@nexo-digital.com
+               </a>
+           </div>
+        </div>
+
+        {/* === COLUMNA 3: LEGAL === */}
+        <div className="p-10 flex flex-col justify-end">
+            <h3 className="font-black text-sm uppercase tracking-widest mb-6">
+              Legal
+            </h3>
+            <ul className="space-y-3 text-[10px] uppercase font-bold tracking-wider">
+              <li><a href="#" className="hover:underline">Política de Privacidad</a></li>
+              <li><a href="#" className="hover:underline">Términos y Condiciones</a></li>
+              <li><a href="#" className="hover:underline">Política de Cookies</a></li>
+              <li><a href="#" className="hover:underline">Aviso Legal</a></li>
+            </ul>
         </div>
 
       </div>
