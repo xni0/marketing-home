@@ -7,11 +7,10 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      // 1. FUENTE: Solo una definición, usando Syne
       fontFamily: {
-        sans: ['Syne', 'sans-serif'], 
+        sans: ['Syne', 'sans-serif'],
       },
-      // 2. COLORES
+      // ... tus colores y fuentes ...
       colors: {
         nexo: {
           primary: '#000000',
@@ -24,13 +23,16 @@ export default {
           }
         }
       },
-      // 3. TAMAÑOS DE FUENTE
-      fontSize: {
-        'h1': ['40px', { lineHeight: '1.1', fontWeight: '700' }],
-        'h2': ['30px', { lineHeight: '1.2', fontWeight: '600' }],
-        'h3': ['27px', { lineHeight: '1.3', fontWeight: '500' }],
-        'body': ['20px', { lineHeight: '1.5' }],
-      }
+      // === ESTO ES LO CRUCIAL PARA LA ANIMACIÓN ===
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        scroll: 'scroll 20s linear infinite', // He bajado a 20s para que se note más el movimiento
+      },
     },
   },
   plugins: [],
