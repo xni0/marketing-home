@@ -52,8 +52,7 @@ const Home = () => {
     { id: 4, title: "Desarrollo Web", sub: "Código eficiente", baseImage: "home-web" },
   ];
 
-  // === LOGOS FIABLES (Wikimedia Commons) ===
-  // Estos enlaces son oficiales y no suelen ser bloqueados por adblockers
+  // Logos
   const logosBase = [
     "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
@@ -64,9 +63,10 @@ const Home = () => {
     "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
     "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
   ];
-
-  // Duplicamos x3 para asegurar el loop infinito suave
   const carouselLogos = [...logosBase, ...logosBase, ...logosBase];
+
+  // Acento Naranja (Solo para línea gruesa)
+  const accentBg = "bg-[#FF4500]";
 
   return (
     <div className="min-h-full font-sans bg-white dark:bg-black text-black dark:text-white relative">
@@ -104,7 +104,7 @@ const Home = () => {
         </section>
         
         {/* FOOTER CARDS */}
-        <div className="text-center py-2 text-[10px] font-bold uppercase bg-[#EFEFEF] dark:bg-gray-800 text-black dark:text-white tracking-widest border-b border-black flex items-center justify-center gap-2">
+        <div className="text-center py-2 text-[10px] font-bold uppercase bg-[#EFEFEF] dark:bg-gray-800 text-black dark:text-white tracking-widest border-b border-black flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
           Ver todos los proyectos <span className="text-lg">👁</span>
         </div>
 
@@ -114,8 +114,11 @@ const Home = () => {
               <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter">
                 TRANSFORMAMOS IDEAS EN <br /> EXPERIENCIAS DIGITALES
               </h2>
-              <span className="block h-1.5 w-24 bg-white dark:bg-black mt-8"></span>
+              {/* LÍNEA GRUESA NARANJA */}
+              <span className={`block h-1.5 w-24 ${accentBg} mt-8`}></span>
             </div>
+            
+            {/* HASHTAGS (Limpios) */}
             <div className="p-12 sm:p-20 flex flex-col justify-center gap-4 text-xl sm:text-2xl font-light">
               <p># Diseño Sostenible</p>
               <p># Innovación Técnica</p>
@@ -123,7 +126,7 @@ const Home = () => {
             </div>
         </section>
 
-        {/* === CAROUSEL SECTION === */}
+        {/* CAROUSEL SECTION */}
         <section className="py-20 sm:py-28 bg-white dark:bg-black transition-colors duration-300 overflow-hidden border-b border-black dark:border-white">
              <div className="text-center mb-16 px-4">
                  <span className="italic text-lg font-serif border-b border-black dark:border-white pb-1 inline-block">
@@ -131,19 +134,25 @@ const Home = () => {
                  </span>
              </div>
              
-             {/* CARRUSEL INFINITO */}
+             {/* CARRUSEL INFINITO CON DEGRADADOS */}
              <div className="relative w-full flex overflow-hidden">
-                {/* min-w-full asegura que el contenedor tenga ancho suficiente para animarse */}
+                
+                {/* === DEGRADADO IZQUIERDO === */}
+                {/* from-white: Empieza blanco */}
+                {/* dark:from-black: En modo noche empieza negro */}
+                {/* to-transparent: Termina transparente */}
+                <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
+
+                {/* === DEGRADADO DERECHO === */}
+                <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
+
+                {/* LOGOS ANIMADOS */}
                 <div className="flex items-center gap-16 animate-scroll whitespace-nowrap min-w-full">
                     {carouselLogos.map((logoSrc, index) => (
                         <div key={index} className="flex-shrink-0 w-32 h-20 flex items-center justify-center">
                             <img
                               src={logoSrc}
                               alt="Logo cliente"
-                              // grayscale: los pone en B/N
-                              // opacity-80: un poco tenues
-                              // hover:opacity-100: al pasar el ratón se iluminan
-                              // dark:invert: IMPORTANTE para que se vean bien en modo oscuro
                               className="w-full h-full object-contain grayscale dark:invert opacity-80 hover:opacity-100 transition-opacity duration-300"
                             />
                         </div>
@@ -162,7 +171,7 @@ const Home = () => {
           onClick={closeModal}
         >
           <div className="relative max-w-6xl w-full flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-            <button onClick={closeModal} className="absolute -top-12 right-0 text-white text-5xl font-thin">✕</button>
+            <button onClick={closeModal} className="absolute -top-12 right-0 text-white text-5xl font-thin hover:text-[#FF4500] transition-colors">✕</button>
             <img 
               src={selectedImage.src} 
               srcSet={selectedImage.srcSet} 
