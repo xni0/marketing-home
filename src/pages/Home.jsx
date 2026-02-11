@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Navbar from '../components/layout/Navbar';
-import Footer from '../components/layout/Footer';
 import Card from '../components/ui/Card';
 
 // Imports de video
@@ -65,106 +63,90 @@ const Home = () => {
   ];
   const carouselLogos = [...logosBase, ...logosBase, ...logosBase];
 
-  // Acento Naranja (Solo para línea gruesa)
   const accentBg = "bg-[#FF4500]";
 
   return (
-    <div className="min-h-full font-sans bg-white dark:bg-black text-black dark:text-white relative">
-      <Navbar />
-
-      <main className="w-full">
-        {/* HERO */}
-        <section className={`relative w-full h-[500px] sm:h-[700px] border-b ${borderClass} overflow-hidden`}>
-          <div className="absolute inset-0 z-0">
-             <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-               <source src={heroVideoWebm} type="video/webm" />
-               <source src={heroVideoMp4} type="video/mp4" />
-             </video>
-             <div className="absolute inset-0 bg-black/30"></div>
-          </div>
-        </section>
-
-        {/* HEADER CARDS */}
-        <div className="py-4 text-center bg-[#EFEFEF] dark:bg-gray-800 text-black dark:text-white font-bold text-2xl uppercase tracking-tight border-b border-white">
-             <h2>Servicios Destacados</h2>
-        </div>
-
-        {/* GRID CARDS */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 bg-white border-b border-white">
-            {cardsData.map((item) => (
-              <div key={item.id} className="h-full">
-                  <Card 
-                    title={item.title} 
-                    subtitle={item.sub} 
-                    baseImageName={item.baseImage}
-                    onImageClick={handleImageClick}
-                  />
-              </div>
-            ))}
-        </section>
-        
-        {/* FOOTER CARDS */}
-        <div className="text-center py-2 text-[10px] font-bold uppercase bg-[#EFEFEF] dark:bg-gray-800 text-black dark:text-white tracking-widest border-b border-black flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-          Ver todos los proyectos <span className="text-lg">👁</span>
-        </div>
-
-        {/* DARK SECTION */}
-        <section className={`grid grid-cols-1 md:grid-cols-2 w-full border-b ${borderClass} bg-black text-white dark:bg-white dark:text-black transition-colors duration-300`}>
-            <div className="p-12 sm:p-20 border-b md:border-b-0 flex flex-col justify-center">
-              <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter">
-                TRANSFORMAMOS IDEAS EN <br /> EXPERIENCIAS DIGITALES
-              </h2>
-              {/* LÍNEA GRUESA NARANJA */}
-              <span className={`block h-1.5 w-24 ${accentBg} mt-8`}></span>
-            </div>
-            
-            {/* HASHTAGS (Limpios) */}
-            <div className="p-12 sm:p-20 flex flex-col justify-center gap-4 text-xl sm:text-2xl font-light">
-              <p># Diseño Sostenible</p>
-              <p># Innovación Técnica</p>
-              <p># Gestión Integral</p>
-            </div>
-        </section>
-
-        {/* CAROUSEL SECTION */}
-        <section className="py-20 sm:py-28 bg-white dark:bg-black transition-colors duration-300 overflow-hidden border-b border-black dark:border-white">
-             <div className="text-center mb-16 px-4">
-                 <span className="italic text-lg font-serif border-b border-black dark:border-white pb-1 inline-block">
-                     Confían en nosotros las empresas líderes del sector
-                 </span>
-             </div>
-             
-             {/* CARRUSEL INFINITO CON DEGRADADOS */}
-             <div className="relative w-full flex overflow-hidden">
-                
-                {/* === DEGRADADO IZQUIERDO === */}
-                {/* from-white: Empieza blanco */}
-                {/* dark:from-black: En modo noche empieza negro */}
-                {/* to-transparent: Termina transparente */}
-                <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
-
-                {/* === DEGRADADO DERECHO === */}
-                <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
-
-                {/* LOGOS ANIMADOS */}
-                <div className="flex items-center gap-16 animate-scroll whitespace-nowrap min-w-full">
-                    {carouselLogos.map((logoSrc, index) => (
-                        <div key={index} className="flex-shrink-0 w-32 h-20 flex items-center justify-center">
-                            <img
-                              src={logoSrc}
-                              alt="Logo cliente"
-                              className="w-full h-full object-contain grayscale dark:invert opacity-80 hover:opacity-100 transition-opacity duration-300"
-                            />
-                        </div>
-                    ))}
-                </div>
-             </div>
-        </section>
-
-      </main>
-      <Footer />
+    /* Eliminamos el div envoltorio con Navbar y Footer para no duplicar */
+    <main className="w-full bg-white dark:bg-black transition-colors duration-300">
       
-      {/* MODAL */}
+      {/* HERO - Eliminamos border-t para que no choque con el Navbar global */}
+      <section className={`relative w-full h-[500px] sm:h-[700px] border-b ${borderClass} overflow-hidden`}>
+        <div className="absolute inset-0 z-0">
+           <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+             <source src={heroVideoWebm} type="video/webm" />
+             <source src={heroVideoMp4} type="video/mp4" />
+           </video>
+           <div className="absolute inset-0 bg-black/30"></div>
+        </div>
+      </section>
+
+      {/* HEADER CARDS */}
+      <div className="py-4 text-center bg-[#EFEFEF] dark:bg-gray-800 text-black dark:text-white font-bold text-2xl uppercase tracking-tight border-b border-white">
+          <h2>Servicios Destacados</h2>
+      </div>
+
+      {/* GRID CARDS */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 bg-white border-b border-white">
+          {cardsData.map((item) => (
+            <div key={item.id} className="h-full">
+                <Card 
+                  title={item.title} 
+                  subtitle={item.sub} 
+                  baseImageName={item.baseImage}
+                  onImageClick={handleImageClick}
+                />
+            </div>
+          ))}
+      </section>
+      
+      {/* FOOTER CARDS */}
+      <div className="text-center py-2 text-[10px] font-bold uppercase bg-[#EFEFEF] dark:bg-gray-800 text-black dark:text-white tracking-widest border-b border-black flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+        Ver todos los proyectos <span className="text-lg">👁</span>
+      </div>
+
+      {/* DARK SECTION */}
+      <section className={`grid grid-cols-1 md:grid-cols-2 w-full border-b ${borderClass} bg-black text-white dark:bg-white dark:text-black transition-colors duration-300`}>
+          <div className="p-12 sm:p-20 border-b md:border-b-0 flex flex-col justify-center">
+            <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter">
+              TRANSFORMAMOS IDEAS EN <br /> EXPERIENCIAS DIGITALES
+            </h2>
+            <span className={`block h-1.5 w-24 ${accentBg} mt-8`}></span>
+          </div>
+          
+          <div className="p-12 sm:p-20 flex flex-col justify-center gap-4 text-xl sm:text-2xl font-light">
+            <p># Diseño Sostenible</p>
+            <p># Innovación Técnica</p>
+            <p># Gestión Integral</p>
+          </div>
+      </section>
+
+      {/* CAROUSEL SECTION */}
+      <section className="py-20 sm:py-28 bg-white dark:bg-black transition-colors duration-300 overflow-hidden border-b border-black dark:border-white">
+           <div className="text-center mb-16 px-4">
+               <span className="italic text-lg font-serif border-b border-black dark:border-white pb-1 inline-block">
+                   Confían en nosotros las empresas líderes del sector
+               </span>
+           </div>
+           
+           <div className="relative w-full flex overflow-hidden">
+              <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
+
+              <div className="flex items-center gap-16 animate-scroll whitespace-nowrap min-w-full">
+                  {carouselLogos.map((logoSrc, index) => (
+                      <div key={index} className="flex-shrink-0 w-32 h-20 flex items-center justify-center">
+                          <img
+                            src={logoSrc}
+                            alt="Logo cliente"
+                            className="w-full h-full object-contain grayscale dark:invert opacity-80 hover:opacity-100 transition-opacity duration-300"
+                          />
+                      </div>
+                  ))}
+              </div>
+           </div>
+      </section>
+
+      {/* MODAL (Renderizado al final del main) */}
       {modalOpen && selectedImage && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
@@ -185,7 +167,7 @@ const Home = () => {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 };
 

@@ -1,40 +1,51 @@
-import { Link } from 'react-router-dom'; // Importante importar Link
+import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import searchIcon from '../../assets/icons/streamline-sharp_magnifying-glass-remix.png';
 
 const Navbar = () => {
-  // Mantenemos tu clase de diseño para las celdas
-  const cellClass = "flex-1 flex items-center justify-center border-r border-black dark:border-white h-full hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors cursor-pointer text-[10px] sm:text-xs font-bold tracking-widest uppercase text-black dark:text-white";
+  // Volvemos a 1px para que el diseño sea más fino y premium
+  const borderWeight = "border-b-[1px] border-r-[1px]"; 
+  const cellClass = `flex-1 flex items-center justify-center ${borderWeight} border-black dark:border-white h-full hover:bg-gray-50 dark:hover:bg-neutral-900 transition-colors cursor-pointer text-[10px] font-bold tracking-widest uppercase text-black dark:text-white`;
 
   return (
     <div className="w-full z-50 font-sans">
-      <nav className="w-full h-16 border-b border-black dark:border-white flex items-center bg-white dark:bg-black">
+      {/* 1. BARRA DE NAVEGACIÓN (CELDAS) */}
+      <nav className="w-full h-16 flex items-center bg-white dark:bg-black">
         
-        {/* === ENLACE A NOSOTROS CONECTADO === */}
         <Link to="/nosotros" className={cellClass}>Nosotros</Link>
         
-        <Link to="/" className={cellClass}>Servicios</Link>
+        <Link to="/servicios" className={cellClass}>Servicios</Link>
         
-        <div className="flex-[1.5] flex items-center justify-center border-r border-black dark:border-white h-full">
+        <div className={`flex-[1.5] flex items-center justify-center ${borderWeight} border-black dark:border-white h-full`}>
           <Link to="/">
-            <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">NEXO.</h1>
+            <h1 className="text-3xl md:text-4xl font-black tracking-tighter uppercase text-black dark:text-white">
+              NEXO<span className="text-[#FF4500]">.</span>
+            </h1>
           </Link>
         </div>
         
-        <Link to="/" className={cellClass}>Noticias</Link>
+        <Link to="/noticias" className={cellClass}>Noticias</Link>
         
-        <div className="flex-1 flex items-center justify-center gap-2 h-full border-black dark:border-white">
-            <span className="text-[10px] sm:text-xs font-bold tracking-widest uppercase">Contacto</span>
+        <div className={`flex-1 flex items-center justify-center gap-2 h-full ${borderWeight} border-black dark:border-white`}>
+            <Link to="/contacto" className="text-[10px] font-bold tracking-widest uppercase text-black dark:text-white">
+              Contacto
+            </Link>
             <div className="scale-75"><ThemeToggle /></div>
         </div>
       </nav>
 
-      {/* Barra de búsqueda (se mantiene igual) */}
-      <div className="w-full bg-black flex justify-center py-2 border-b border-black dark:border-white">
-        <div className="bg-transparent text-white px-10 py-3 rounded-full flex items-center gap-4 border border-white">
-          <img src={searchIcon} alt="Buscar" className="w-4 h-4 invert" />
-          <input type="text" placeholder="BARRA BÚSQUEDA" className="bg-transparent text-white placeholder-white text-[10px] uppercase w-40 focus:outline-none text-center font-bold" />
-          <span className="text-xs">→</span>
+      {/* 2. BARRA DE BÚSQUEDA (RELLENO NEGRO DENTRO DEL MARCO) */}
+      <div className="w-full bg-black flex justify-center py-4 border-b-[1px] border-black dark:border-white">
+        <div className="bg-transparent text-white px-8 py-2 rounded-full flex items-center gap-4 border-[1px] border-white">
+          <img src={searchIcon} alt="Buscar" className="w-4 h-4 invert brightness-200" />
+          
+          <input 
+            type="text" 
+            placeholder="BARRA BÚSQUEDA" 
+            className="bg-transparent text-white placeholder-white/50 text-[10px] uppercase w-40 focus:outline-none text-center font-bold tracking-widest" 
+          />
+          
+          <span className="text-white font-bold cursor-pointer hover:text-[#FF4500]">→</span>
         </div>
       </div>
     </div>
