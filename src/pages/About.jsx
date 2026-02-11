@@ -26,9 +26,10 @@ const About = () => {
     <main className="px-2 md:px-3 bg-white dark:bg-black transition-colors duration-300">
       <div className={`w-full border-x border-b border-[1px] ${borderClass} rounded-none overflow-hidden`}>
         
-        {/* 1. SECCIÓN HERO */}
-        <section className={`grid grid-cols-1 md:grid-cols-2 border-b-[1px] ${borderClass}`}>
-          <div className={`px-8 py-20 md:px-16 md:py-32 flex flex-col justify-center border-b-[1px] md:border-b-0 md:border-r-[1px] ${borderClass}`}>
+        {/* 1. SECCIÓN HERO CON EFECTO DEGRADADO LATERAL */}
+        <section className={`relative flex flex-col md:flex-row border-b-[1px] ${borderClass} min-h-[500px] overflow-hidden bg-white dark:bg-black`}>
+          {/* Bloque de Texto */}
+          <div className="relative z-10 flex-1 px-8 py-20 md:px-16 md:py-32 flex flex-col justify-center bg-white/80 dark:bg-black/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none">
             <h1 className="text-4xl md:text-6xl font-black uppercase leading-none tracking-tighter mb-8 text-black dark:text-white">
               SOBRE <br /> 
               <span className={`${accentColor} inline-block hover:skew-x-[-6deg] transition-transform duration-300 cursor-default`}>
@@ -39,12 +40,25 @@ const About = () => {
               Diseñamos experiencias digitales con un enfoque minimalista y funcional.
             </p>
           </div>
-          <div className="h-[500px] md:h-auto overflow-hidden">
-            <img src={heroImg.src} srcSet={heroImg.srcSet} alt="Nexo Office" className="w-full h-full object-cover grayscale brightness-90 transition-all duration-700" loading="eager" />
+          
+          {/* Contenedor de Imagen con Máscara de Degradado Lateral */}
+          <div className="absolute right-0 top-0 w-full md:w-[60%] h-full overflow-hidden">
+            <img 
+              src={heroImg.src} 
+              srcSet={heroImg.srcSet} 
+              alt="Nexo Office" 
+              className="w-full h-full object-cover grayscale brightness-90 transition-all duration-700" 
+              loading="eager" 
+            />
+            
+            {/* Máscara de fundido: Blanco en modo claro, Negro en modo oscuro */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent dark:from-black dark:via-black/20 dark:to-transparent hidden md:block"></div>
+            {/* Máscara para móvil (vertical) */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent dark:from-black md:hidden"></div>
           </div>
         </section>
 
-        {/* 2. SECCIÓN EQUIPO */}
+        {/* 2. SECCIÓN EQUIPO (SIN CAMBIOS) */}
         <section className={`py-16 md:py-24 px-6 md:px-12 border-b-[1px] ${borderClass}`}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black uppercase tracking-tighter italic inline-block relative group cursor-default text-black dark:text-white">
@@ -72,7 +86,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* 3. SECCIÓN FILOSOFÍA (CORREGIDA MODO NOCHE) */}
+        {/* 3. SECCIÓN FILOSOFÍA (SIN CAMBIOS) */}
         <section className={`grid grid-cols-1 md:grid-cols-2 border-b-[1px] ${borderClass} bg-white dark:bg-black relative transition-colors duration-300`}>
           <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05] pointer-events-none" style={{ backgroundImage: `linear-gradient(${borderClass === 'border-black' ? '#000' : '#fff'} 1px, transparent 1px), linear-gradient(90deg, ${borderClass === 'border-black' ? '#000' : '#fff'} 1px, transparent 1px)`, backgroundSize: '30px 30px' }}></div>
 
@@ -101,7 +115,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* 4. SECCIÓN CTA FINAL */}
+        {/* 4. SECCIÓN CTA FINAL (SIN CAMBIOS) */}
         <section className="relative h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden bg-black text-white p-12 md:p-24 text-center">
           <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale" poster={heroImg.src} >
             <source src={heroVideoWebm} type="video/webm" />
