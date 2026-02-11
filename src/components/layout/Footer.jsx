@@ -8,8 +8,7 @@ import iconX from '../../assets/icons/ri_twitter-x-fill.png';
 import iconInsta from '../../assets/icons/mdi_instagram.png';
 
 const Footer = () => {
-  // Clase común para los iconos sociales (LinkedIn, Insta, TikTok)
-  // CAMBIO AQUÍ: De w-5 h-5 a w-6 h-6 (un poco más grandes)
+  // Clase común para los iconos sociales (Tamaño w-6)
   const socialIconClass = "w-6 h-6 object-contain dark:invert hover:scale-110 transition-transform";
 
   return (
@@ -43,12 +42,11 @@ const Footer = () => {
                <h3 className="font-black text-sm uppercase tracking-widest mb-4">
                  Síguenos
                </h3>
-               {/* ICONOS SOCIALES (TAMAÑO AUMENTADO) */}
+               {/* ICONOS SOCIALES */}
                <div className="flex items-center gap-6">
                   <a href="#"><img src={iconLinkedin} alt="LinkedIn" className={socialIconClass} /></a>
                   <a href="#"><img src={iconInsta} alt="Instagram" className={socialIconClass} /></a>
                   <a href="#"><img src={iconTiktok} alt="TikTok" className={socialIconClass} /></a>
-                  {/* El de X también aumenta un poco (a w-5) para compensar */}
                   <a href="#"><img src={iconX} alt="X" className="w-5 h-5 object-contain dark:invert hover:scale-110 transition-transform" /></a>
                </div>
            </div>
@@ -63,8 +61,9 @@ const Footer = () => {
            </div>
         </div>
 
-        {/* === COLUMNA 3: LEGAL === */}
-        <div className="p-10 flex flex-col justify-end">
+        {/* === COLUMNA 3: LEGAL (CENTRADA) === */}
+        {/* Aquí está el cambio: 'justify-center' en lugar de 'justify-end' */}
+        <div className="p-10 flex flex-col justify-center">
             <h3 className="font-black text-sm uppercase tracking-widest mb-6">
               Legal
             </h3>
