@@ -7,12 +7,11 @@ import heroVideoWebm from '../assets/videos/Nexo_video_hero.webm';
 
 const Home = () => {
   const borderClass = "border-black dark:border-white";
+  const accentBg = "bg-[#FF4500]";
 
-  // Estado Modal
+  // --- LÓGICA DE MODAL E IMÁGENES ---
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-
-  // Helper imágenes
   const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { eager: true, as: 'url' });
   
   const getModalImage = (baseName, density) => {
@@ -26,7 +25,6 @@ const Home = () => {
   const handleImageClick = (baseName, title, description) => {
     const src1x = getModalImage(baseName, '1');
     const src2x = getModalImage(baseName, '2');
-    
     if (src1x) {
         setSelectedImage({
           src: src1x,
@@ -43,6 +41,7 @@ const Home = () => {
     setSelectedImage(null);
   };
 
+  // --- DATOS ---
   const cardsData = [
     { id: 1, title: "Web Design", sub: "Diseño de interfaces", baseImage: "home-design-2" },
     { id: 2, title: "Marketing", sub: "Estrategias digitales", baseImage: "home-marketing-2" },
@@ -50,7 +49,6 @@ const Home = () => {
     { id: 4, title: "Desarrollo Web", sub: "Código eficiente", baseImage: "home-web" },
   ];
 
-  // Logos
   const logosBase = [
     "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
@@ -63,13 +61,10 @@ const Home = () => {
   ];
   const carouselLogos = [...logosBase, ...logosBase, ...logosBase];
 
-  const accentBg = "bg-[#FF4500]";
-
   return (
-    /* Eliminamos el div envoltorio con Navbar y Footer para no duplicar */
     <main className="w-full bg-white dark:bg-black transition-colors duration-300">
       
-      {/* HERO - Eliminamos border-t para que no choque con el Navbar global */}
+      {/* 1. HERO SECTION */}
       <section className={`relative w-full h-[500px] sm:h-[700px] border-b ${borderClass} overflow-hidden`}>
         <div className="absolute inset-0 z-0">
            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
@@ -80,13 +75,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* HEADER CARDS */}
-      <div className="py-4 text-center bg-[#EFEFEF] dark:bg-gray-800 text-black dark:text-white font-bold text-2xl uppercase tracking-tight border-b border-white">
+      {/* 2. HEADER CARDS */}
+      <div className="py-4 text-center bg-[#EFEFEF] dark:bg-neutral-900 text-black dark:text-white font-bold text-2xl uppercase tracking-tight border-b border-white dark:border-black transition-colors">
           <h2>Servicios Destacados</h2>
       </div>
 
-      {/* GRID CARDS */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 bg-white border-b border-white">
+      {/* 3. GRID CARDS */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 bg-white dark:bg-black border-b border-white dark:border-black">
           {cardsData.map((item) => (
             <div key={item.id} className="h-full">
                 <Card 
@@ -99,14 +94,14 @@ const Home = () => {
           ))}
       </section>
       
-      {/* FOOTER CARDS */}
-      <div className="text-center py-2 text-[10px] font-bold uppercase bg-[#EFEFEF] dark:bg-gray-800 text-black dark:text-white tracking-widest border-b border-black flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+      {/* 4. VER MÁS PROYECTOS */}
+      <div className="text-center py-2 text-[10px] font-bold uppercase bg-[#EFEFEF] dark:bg-neutral-900 text-black dark:text-white tracking-widest border-b border-black dark:border-white flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-neutral-800 transition-colors">
         Ver todos los proyectos <span className="text-lg">👁</span>
       </div>
 
-      {/* DARK SECTION */}
+      {/* 5. DARK/LIGHT SECTION (FILOSOFÍA MARCA) */}
       <section className={`grid grid-cols-1 md:grid-cols-2 w-full border-b ${borderClass} bg-black text-white dark:bg-white dark:text-black transition-colors duration-300`}>
-          <div className="p-12 sm:p-20 border-b md:border-b-0 flex flex-col justify-center">
+          <div className={`p-12 sm:p-20 border-b md:border-b-0 md:border-r ${borderClass} flex flex-col justify-center`}>
             <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter">
               TRANSFORMAMOS IDEAS EN <br /> EXPERIENCIAS DIGITALES
             </h2>
@@ -120,10 +115,10 @@ const Home = () => {
           </div>
       </section>
 
-      {/* CAROUSEL SECTION */}
+      {/* 6. CAROUSEL SECTION (CORREGIDA) */}
       <section className="py-20 sm:py-28 bg-white dark:bg-black transition-colors duration-300 overflow-hidden border-b border-black dark:border-white">
            <div className="text-center mb-16 px-4">
-               <span className="italic text-lg font-serif border-b border-black dark:border-white pb-1 inline-block">
+               <span className="italic text-lg font-serif border-b border-black dark:border-white pb-1 inline-block text-black dark:text-white transition-colors duration-300">
                    Confían en nosotros las empresas líderes del sector
                </span>
            </div>
@@ -146,7 +141,7 @@ const Home = () => {
            </div>
       </section>
 
-      {/* MODAL (Renderizado al final del main) */}
+      {/* 7. MODAL */}
       {modalOpen && selectedImage && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4"

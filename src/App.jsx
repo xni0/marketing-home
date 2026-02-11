@@ -7,16 +7,23 @@ import Footer from './components/layout/Footer';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-black p-2 md:p-4">
-        <div className="min-h-[calc(100vh-2rem)] bg-white dark:bg-black rounded-[40px] overflow-hidden flex flex-col shadow-2xl border border-white/10">
+      {/* FONDO EXTERIOR DINÁMICO: Negro por defecto, Blanco en modo noche */}
+      <div className="min-h-screen bg-black dark:bg-white p-2 md:p-4 transition-colors duration-500">
+        
+        {/* CONTENEDOR INTERNO (CÁPSULA): Se mantiene igual */}
+        <div className="min-h-[calc(100vh-2rem)] bg-white dark:bg-black rounded-[40px] overflow-hidden flex flex-col shadow-none border-none">
+          
           <Navbar />
+          
           <div className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/nosotros" element={<About />} />
             </Routes>
           </div>
+
           <Footer />
+          
         </div>
       </div>
     </Router>
