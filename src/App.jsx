@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Servicios from './pages/Servicios'; // Corregido: Importación con el nombre correcto
+import Servicios from './pages/Servicios';
+import Noticias from './pages/Noticias'; // Importamos la nueva página de noticias
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
@@ -21,6 +22,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/nosotros" element={<About />} />
               <Route path="/servicios" element={<Servicios />} />
+              <Route path="/noticias" element={<Noticias />} /> {/* Nueva ruta añadida */}
             </Routes>
           </div>
           

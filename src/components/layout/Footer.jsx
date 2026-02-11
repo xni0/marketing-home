@@ -1,11 +1,12 @@
 // IMPORTAMOS EL LOGO
 import logoNexo from '../../assets/images/icono-nexo-white-large-1x.webp';
 
-// IMPORTAMOS TUS ICONOS SOCIALES
-import iconLinkedin from '../../assets/icons/ant-design_linkedin-filled.png';
-import iconTiktok from '../../assets/icons/ic_baseline-tiktok.png';
-import iconX from '../../assets/icons/ri_twitter-x-fill.png';
-import iconInsta from '../../assets/icons/mdi_instagram.png';
+// IMPORTAMOS TUS ICONOS SOCIALES EN FORMATO SVG (PARA MÁXIMA NITIDEZ)
+import iconLinkedin from '../../assets/icons/ant-design_linkedin-filled.svg';
+import iconTiktok from '../../assets/icons/ic_baseline-tiktok.svg';
+import iconX from '../../assets/icons/ri_twitter-x-fill.svg';
+import iconInsta from '../../assets/icons/mdi_instagram.svg';
+import iconYoutube from '../../assets/icons/line-md_youtube.svg'; // Nuevo icono añadido
 
 const Footer = () => {
   // Clase común para los iconos sociales (Tamaño w-6)
@@ -32,37 +33,37 @@ const Footer = () => {
              <p>Agencia Digital NEXO</p>
              <p>Calle Gran Vía, 28</p>
              <p>28013 Madrid, España</p>
-             <p className="mt-6 text-[10px] opacity-60">© Nexo Digital S.L. 2025</p>
+             <p className="mt-6 text-[10px] opacity-60">© Nexo Digital S.L. 2026</p>
            </div>
         </div>
 
         {/* === COLUMNA 2: REDES Y CONTACTO === */}
         <div className="p-10 flex flex-col justify-center gap-8">
-           <div>
-               <h3 className="font-black text-sm uppercase tracking-widest mb-4">
-                 Síguenos
-               </h3>
-               {/* ICONOS SOCIALES */}
-               <div className="flex items-center gap-6">
-                  <a href="#"><img src={iconLinkedin} alt="LinkedIn" className={socialIconClass} /></a>
-                  <a href="#"><img src={iconInsta} alt="Instagram" className={socialIconClass} /></a>
-                  <a href="#"><img src={iconTiktok} alt="TikTok" className={socialIconClass} /></a>
-                  <a href="#"><img src={iconX} alt="X" className="w-5 h-5 object-contain dark:invert hover:scale-110 transition-transform" /></a>
-               </div>
-           </div>
+            <div>
+                <h3 className="font-black text-sm uppercase tracking-widest mb-4">
+                  Síguenos
+                </h3>
+                {/* ICONOS SOCIALES ACTUALIZADOS A SVG */}
+                <div className="flex items-center gap-6">
+                   <a href="#"><img src={iconLinkedin} alt="LinkedIn" className={socialIconClass} /></a>
+                   <a href="#"><img src={iconInsta} alt="Instagram" className={socialIconClass} /></a>
+                   <a href="#"><img src={iconTiktok} alt="TikTok" className={socialIconClass} /></a>
+                   <a href="#"><img src={iconYoutube} alt="YouTube" className={socialIconClass} /></a> {/* Icono YouTube añadido */}
+                   <a href="#"><img src={iconX} alt="X" className="w-5 h-5 object-contain dark:invert hover:scale-110 transition-transform" /></a>
+                </div>
+            </div>
 
-           <div>
-               <h3 className="font-black text-sm uppercase tracking-widest mb-1">
-                 Contacto
-               </h3>
-               <a href="mailto:hola@nexo.com" className="text-xs font-medium hover:underline">
-                 hola@nexo-digital.com
-               </a>
-           </div>
+            <div>
+                <h3 className="font-black text-sm uppercase tracking-widest mb-1">
+                  Contacto
+                </h3>
+                <a href="mailto:hola@nexo.com" className="text-xs font-medium hover:underline">
+                  hola@nexo-digital.com
+                </a>
+            </div>
         </div>
 
         {/* === COLUMNA 3: LEGAL (CENTRADA) === */}
-        {/* Aquí está el cambio: 'justify-center' en lugar de 'justify-end' */}
         <div className="p-10 flex flex-col justify-center">
             <h3 className="font-black text-sm uppercase tracking-widest mb-6">
               Legal
