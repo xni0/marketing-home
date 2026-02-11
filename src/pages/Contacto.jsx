@@ -11,8 +11,8 @@ const Contacto = () => {
   };
 
   return (
-    <main className="w-full bg-white dark:bg-black transition-colors duration-300">
-      <div className={`w-full border-x border-b border-[1px] ${borderClass} overflow-hidden`}>
+    <main className="bg-white dark:bg-black transition-colors duration-300">
+      <div className={`w-full border-b border-[1px] ${borderClass} overflow-hidden`}>
         
         {/* 1. CABECERA */}
         <section className={`p-8 md:p-16 border-b-[1px] ${borderClass}`}>
@@ -26,7 +26,7 @@ const Contacto = () => {
           </motion.div>
         </section>
 
-        {/* 2. FORMULARIO CON ICONO DE FLECHA (MANTENIDO) */}
+        {/* 2. FORMULARIO */}
         <section className={`p-8 md:p-16 border-b-[1px] ${borderClass} bg-[#F9F9F9] dark:bg-neutral-900/20`}>
           <form className="max-w-4xl mx-auto space-y-12">
             {[
@@ -67,45 +67,52 @@ const Contacto = () => {
           </form>
         </section>
 
-        {/* 3. BARRA SEPARADORA CON NUEVO ICONO DE UBICACIÓN */}
+        {/* 3. BARRA SEPARADORA */}
         <div className="bg-black dark:bg-white text-white dark:text-black py-3 px-8 text-left text-[10px] font-black uppercase tracking-[0.5em] flex justify-between items-center border-b border-black dark:border-white">
           <span>LOCALIZACIÓN Y DATOS</span>
-          {/* Nuevo icono: Pin de ubicación estilizado */}
           <span className="text-2xl opacity-80 cursor-default">⚲</span>
         </div>
 
-        {/* 4. REJILLA DE DATOS Y MAPA (MANTENIDO) */}
-        <section className="flex flex-col md:flex-row w-full border-b border-black dark:border-white items-stretch">
-          <div className={`md:w-1/3 border-b md:border-b-0 md:border-r ${borderClass} flex flex-col`}>
+        {/* 4. REJILLA DE DATOS Y MAPA - ALINEACIÓN FULL WIDTH */}
+        <section className="grid grid-cols-1 md:grid-cols-3 w-full border-b border-black dark:border-white items-stretch">
+          
+          <div className={`border-b md:border-b-0 md:border-r ${borderClass} flex flex-col`}>
             <div className={`p-8 md:p-12 border-b ${borderClass} flex-grow`}>
               <h3 className="text-[10px] font-black uppercase mb-3 text-[#FF4500] tracking-widest">OFICINA CENTRAL</h3>
-              <p className="text-sm font-bold uppercase text-black dark:text-white leading-tight">Calle Gran Vía 28, 28013 Madrid, España</p>
+              <p className="text-sm font-bold uppercase text-black dark:text-white leading-tight">CALLE GRAN VÍA 28, MADRID</p>
+              <div className="mt-4">
+                <h3 className="text-[10px] font-black uppercase mb-1 text-[#FF4500] tracking-widest">TELÉFONO</h3>
+                <p className="text-sm font-bold uppercase text-black dark:text-white">+34 912 345 678</p>
+              </div>
             </div>
             <div className="p-8 md:p-12">
-              <h3 className="text-[10px] font-black uppercase mb-3 text-[#FF4500] tracking-widest">REDES</h3>
+              <h3 className="text-[10px] font-black uppercase mb-3 text-[#FF4500] tracking-widest">SÍGUENOS</h3>
               <p className="text-sm font-bold uppercase text-black dark:text-white">@NEXO_DIGITAL_AGENCY</p>
             </div>
           </div>
 
-          <div className={`md:w-1/3 border-b md:border-b-0 md:border-r ${borderClass} flex flex-col`}>
+          <div className={`border-b md:border-b-0 md:border-r ${borderClass} flex flex-col`}>
             <div className={`p-8 md:p-12 border-b ${borderClass} flex-grow`}>
-              <h3 className="text-[10px] font-black uppercase mb-3 text-[#FF4500] tracking-widest">CANAL DIRECTO</h3>
+              <h3 className="text-[10px] font-black uppercase mb-3 text-[#FF4500] tracking-widest">EMAIL</h3>
               <p className="text-sm font-bold uppercase text-black dark:text-white">HOLA@NEXO-DIGITAL.COM</p>
+              <div className="mt-4">
+                <h3 className="text-[10px] font-black uppercase mb-1 text-[#FF4500] tracking-widest">TALENTO</h3>
+                <p className="text-sm font-bold uppercase text-black dark:text-white">TALENTO@NEXO-DIGITAL.COM</p>
+              </div>
             </div>
             <div className="p-8 md:p-12">
               <h3 className="text-[10px] font-black uppercase mb-3 text-[#FF4500] tracking-widest">HORARIO ATENCIÓN</h3>
-              <p className="text-sm font-bold uppercase text-black dark:text-white">LUNES A VIERNES: 09:00 - 18:00</p>
+              <p className="text-sm font-bold uppercase text-black dark:text-white">L-V 9H-18H</p>
             </div>
           </div>
 
-          <div className="md:w-1/3 min-h-[400px] bg-neutral-200 dark:bg-neutral-800 overflow-hidden relative">
+          <div className="min-h-[400px] bg-neutral-200 dark:bg-neutral-800 overflow-hidden relative">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.616954203176!2d-3.7061761!3d40.420663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228806558872b%3A0xc66699508a8d7938!2sC.%20de%20la%20Gran%20V%C3%ADa%2C%2028%2C%20Centro%2C%2028013%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
-              className="absolute inset-0 w-full h-full grayscale contrast-125 brightness-90 opacity-80"
-              style={{ border: 0, filter: 'grayscale(100%)' }}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.6033486111763!2d-3.7057007234407817!3d40.417646555198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42288031f06f59%3A0x633d32832c382f7e!2sGran%20V%C3%ADa%2C%2028%2C%20Centro%2C%2028013%20Madrid!5e0!3m2!1ses!2ses!4v1710000000000!5m2!1ses!2ses"
+              className="absolute inset-0 w-full h-full grayscale opacity-80"
+              style={{ border: 0, filter: 'grayscale(100%) contrast(1.2)' }}
               allowFullScreen=""
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </section>
