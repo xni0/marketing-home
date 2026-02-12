@@ -15,13 +15,26 @@ const ThemeToggle = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
+  // Tokens de Figma para coherencia visual
+  const borderClass = "border-border-main-light dark:border-border-main-dark";
+
   return (
     <button 
       onClick={toggleTheme} 
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white transition-colors hover:bg-gray-300 dark:hover:bg-gray-600"
+      className={`
+        p-2 rounded-full 
+        bg-bg-secondary-light dark:bg-bg-secondary-dark 
+        text-black dark:text-white 
+        border ${borderClass}
+        transition-all duration-300 
+        hover:bg-bg-primary-light dark:hover:bg-neutral-800
+        flex items-center justify-center
+      `}
       aria-label="Cambiar tema"
     >
-      {theme === 'light' ? '🌙' : '☀️'}
+      <span className="text-sm">
+        {theme === 'light' ? '🌙' : '☀️'}
+      </span>
     </button>
   );
 };
