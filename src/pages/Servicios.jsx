@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 
 const Servicios = () => {
-  const borderClass = "border-black dark:border-white";
-  const accentColor = "text-[#FF4500]";
-  const accentBorder = "border-[#FF4500]";
+  // Aplicamos tokens de borde y acento del sistema
+  const borderClass = "border-border-main-light dark:border-border-main-dark";
+  const accentColor = "text-brand-accent";
+  const accentBorder = "border-brand-accent";
 
-  // --- LÓGICA DE ACTIVOS (TODO A SVG PARA MÁXIMA NITIDEZ) ---
+  // --- LÓGICA DE ACTIVOS (Sin cambios) ---
   const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { eager: true, as: 'url' });
   const iconsGlob = import.meta.glob('../assets/icons/*.svg', { eager: true, as: 'url' });
   
@@ -24,10 +25,10 @@ const Servicios = () => {
   };
 
   return (
-    <main className="px-2 md:px-3 bg-white dark:bg-black transition-colors duration-300">
+    <main className="px-2 md:px-3 bg-bg-primary-light dark:bg-bg-primary-dark transition-colors duration-300">
       <div className={`w-full border-x border-b border-[1px] ${borderClass} overflow-hidden`}>
         
-        {/* 1. CABECERA CON ANIMACIÓN */}
+        {/* 1. CABECERA - Corregido text-black para modo light */}
         <motion.section 
           initial="hidden"
           whileInView="visible"
@@ -35,15 +36,15 @@ const Servicios = () => {
           variants={fadeInUp}
           className={`p-8 md:p-16 border-b-[1px] ${borderClass}`}
         >
-          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4 text-black dark:text-white leading-none">
+          <h1 className="text-4xl md:text-h2 font-black uppercase tracking-tighter mb-4 text-black dark:text-white leading-none">
             Servicios <span className={accentColor}>Disponibles</span>
           </h1>
-          <p className="max-w-xl text-sm md:text-base font-light opacity-70 text-black dark:text-white uppercase tracking-widest">
+          <p className="max-w-xl text-label-bold font-light opacity-70 text-black dark:text-white uppercase tracking-widest">
             Soluciones digitales de alto rendimiento.
           </p>
         </motion.section>
 
-        {/* 2. REJILLA OPTIMIZADA (SVG + PICTURE) */}
+        {/* 2. REJILLA OPTIMIZADA */}
         <section className="grid grid-cols-1 md:grid-cols-2">
           {serviciosList.map((s, idx) => (
             <motion.div 
@@ -68,18 +69,18 @@ const Servicios = () => {
                 </picture>
               </div>
               
-              <div className="p-8 flex flex-col justify-between flex-grow bg-white dark:bg-black">
+              <div className="p-8 flex flex-col justify-between flex-grow bg-bg-primary-light dark:bg-bg-primary-dark transition-colors">
                 <div>
                   <div className="flex items-center gap-4 mb-4">
-                    <h3 className="text-xl font-black uppercase tracking-tight text-black dark:text-white">{s.title}</h3>
-                    {/* ICONO SVG PARA NITIDEZ TOTAL */}
+                    {/* Texto corregido a negro/blanco puro */}
+                    <h3 className="text-h3 font-black uppercase tracking-tight text-black dark:text-white">{s.title}</h3>
                     <img src={getIcon(s.icon)} alt="" className="w-6 h-6 object-contain dark:invert" />
                   </div>
-                  <p className="text-xs md:text-sm font-light opacity-60 text-black dark:text-white leading-relaxed mb-6">
+                  <p className="text-body-default font-light opacity-60 text-black dark:text-white leading-relaxed mb-6">
                     Creamos estrategias personalizadas para potenciar tu presencia digital y alcanzar tus objetivos de negocio.
                   </p>
                 </div>
-                <button className={`text-[10px] font-black uppercase tracking-widest ${accentColor} flex items-center gap-2 hover:translate-x-2 transition-transform`}>
+                <button className={`text-label-bold uppercase tracking-widest ${accentColor} flex items-center gap-2 hover:translate-x-2 transition-transform`}>
                   SABER MÁS <span className="text-base">→</span>
                 </button>
               </div>
@@ -87,8 +88,8 @@ const Servicios = () => {
           ))}
         </section>
 
-        {/* 3. MÉTRICAS */}
-        <section className="bg-white dark:bg-black py-20 px-8 md:px-20 border-t-[1px] border-black dark:border-white">
+        {/* 3. MÉTRICAS - Inversión de color corregida */}
+        <section className="bg-bg-primary-light dark:bg-bg-primary-dark py-20 px-8 md:px-20 border-t-[1px] ${borderClass}">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-around gap-12 md:gap-8 mb-20">
             {[
               { num: "+50", txt: "Empresas confían", icon: 'mdi_company' },
@@ -120,8 +121,8 @@ const Servicios = () => {
             className="flex flex-col items-center"
           >
             <div className={`w-full max-w-lg border-t-2 ${borderClass} opacity-20 mb-8`}></div>
-            <h2 className="text-lg font-black uppercase tracking-[0.4em] mb-8 text-black dark:text-white italic">CONECTAMOS IDEAS</h2>
-            <button className={`px-8 py-3 border-[1px] ${accentBorder} ${accentColor} text-[10px] font-black uppercase tracking-widest hover:bg-[#FF4500] hover:text-white transition-all duration-300`}>
+            <h2 className="text-body-lead font-black uppercase tracking-[0.4em] mb-8 text-black dark:text-white italic">CONECTAMOS IDEAS</h2>
+            <button className={`px-8 py-3 border-[1px] ${accentBorder} ${accentColor} text-label-bold font-black uppercase tracking-widest hover:bg-brand-accent hover:text-white transition-all duration-300`}>
               EMPEZAR PROYECTO
             </button>
           </motion.div>
