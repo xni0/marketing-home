@@ -7,14 +7,14 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      // Mantenemos tu fuente Syne
+      
       fontFamily: {
         sans: ['Syne', 'sans-serif'],
       },
 
-      // Combinamos tus colores previos con los nuevos de Figma
+      
       colors: {
-        // Tus colores originales
+        
         nexo: {
           primary: '#000000',
           accent: '#FF4500',
@@ -25,7 +25,7 @@ export default {
             darkSub: '#171717',
           }
         },
-        // Nuevas variables semánticas de Figma
+       
         bg: {
           'primary-light': '#FFFFFF',
           'primary-dark': '#0A0A0A',
@@ -47,7 +47,7 @@ export default {
         }
       },
 
-      // Jerarquía tipográfica de Figma
+      
       fontSize: {
         'h1': ['128px', { lineHeight: '128px', fontWeight: '900' }],
         'h2': ['48px', { lineHeight: '53px', fontWeight: '700' }],
@@ -58,7 +58,7 @@ export default {
         'label-number': ['14px', { lineHeight: '14px', fontWeight: '900' }],
       },
 
-      // Mantenemos tu animación crucial
+      
       keyframes: {
         scroll: {
           '0%': { transform: 'translateX(0)' },

@@ -1,13 +1,13 @@
 import Button from '../ui/Button';
 
 const Hero = () => {
-  // Tokens de diseño para bordes y espaciados
+  
   const borderClass = "border-border-main-light dark:border-border-main-dark";
 
   return (
     <section className={`pt-32 pb-20 px-4 text-center bg-bg-primary-light dark:bg-bg-primary-dark border-b ${borderClass} transition-colors duration-300`}>
       <div className="max-w-4xl mx-auto">
-        {/* Título: Uso de text-h1 y color de acento de Figma */}
+        
         <h1 className="text-5xl md:text-h1 font-black text-black dark:text-white uppercase tracking-tighter mb-6 leading-none">
           Transformamos ideas en <br />
           <span className="text-brand-accent italic hover:skew-x-[-6deg] transition-transform inline-block cursor-default">
@@ -15,13 +15,13 @@ const Hero = () => {
           </span>
         </h1>
 
-        {/* Descripción: Uso de text-body-lead */}
+        
         <p className="text-lg md:text-body-lead font-light text-black dark:text-white opacity-70 mb-10 max-w-2xl mx-auto uppercase tracking-widest">
           Agencia de marketing especializada en crecimiento, diseño y estrategia.
           Llevamos tu marca al siguiente nivel.
         </p>
 
-        {/* Acciones: Usando el componente Button con Alta Fidelidad */}
+        
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <Button variant="solid" className="w-full sm:w-auto">
             Empezar Proyecto

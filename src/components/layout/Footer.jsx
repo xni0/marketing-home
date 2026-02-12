@@ -1,7 +1,7 @@
-// IMPORTAMOS EL LOGO
+
 import logoNexo from '../../assets/images/icono-nexo-white-large-1x.webp';
 
-// IMPORTAMOS TUS ICONOS SOCIALES
+
 import iconLinkedin from '../../assets/icons/ant-design_linkedin-filled.svg';
 import iconTiktok from '../../assets/icons/ic_baseline-tiktok.svg';
 import iconX from '../../assets/icons/ri_twitter-x-fill.svg';
@@ -9,7 +9,7 @@ import iconInsta from '../../assets/icons/mdi_instagram.svg';
 import iconYoutube from '../../assets/icons/line-md_youtube.svg';
 
 const Footer = () => {
-  // Tokens de Figma para bordes
+  
   const borderClass = "border-border-main-light dark:border-border-main-dark";
   const divideClass = "divide-border-main-light dark:divide-border-main-dark";
   
@@ -18,10 +18,10 @@ const Footer = () => {
   return (
     <footer className={`w-full bg-bg-secondary-light dark:bg-bg-primary-dark text-black dark:text-white border-t ${borderClass} font-sans transition-colors duration-300`}>
       
-      {/* GRID DE 3 COLUMNAS */}
+     
       <div className={`grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x ${divideClass}`}>
         
-        {/* === COLUMNA 1: LOGO E INFO (CORREGIDO) === */}
+        
         <div className="p-10 flex flex-col justify-between min-h-[300px]">
             <div className="mb-6">
               <img 
@@ -31,7 +31,7 @@ const Footer = () => {
               />
             </div>
 
-            {/* Forzamos texto negro en light mode y blanco en dark mode */}
+            
             <div className="text-[11px] uppercase font-bold tracking-widest space-y-1 opacity-90 text-black dark:text-white">
               <p>Agencia Digital NEXO</p>
               <p>Calle Gran Vía, 28</p>
@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
         </div>
 
-        {/* === COLUMNA 2: REDES Y CONTACTO === */}
+       
         <div className="p-10 flex flex-col justify-center gap-8">
             <div>
                 <h3 className="font-black text-sm uppercase tracking-widest mb-4 text-black dark:text-white">
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
         </div>
 
-        {/* === COLUMNA 3: LEGAL === */}
+        
         <div className="p-10 flex flex-col justify-center">
             <h3 className="font-black text-sm uppercase tracking-widest mb-6 text-black dark:text-white">
               Legal

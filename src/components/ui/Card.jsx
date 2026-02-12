@@ -6,7 +6,7 @@ const imagesGlob = import.meta.glob('../../assets/images/*.{png,jpg,jpeg,webp}',
 const getImageUrl = (baseName, size, density) => {
   const fileName = `${baseName}-${size}-${density}x.jpg`;
   for (const path in imagesGlob) {
-    // Usamos toLowerCase para que la búsqueda sea más robusta
+    
     if (path.toLowerCase().includes(fileName.toLowerCase())) {
       return imagesGlob[path];
     }
@@ -20,7 +20,7 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
   return (
     <div className="relative w-full h-full min-h-[500px] overflow-hidden group border-none bg-bg-primary-dark font-sans shadow-2xl">
       
-      {/* 1. IMAGEN DE FONDO OPTIMIZADA */}
+      
       {baseImageName && imgSmall1x ? (
         <div 
           className="absolute inset-0 z-0 cursor-pointer"
@@ -33,7 +33,7 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
                src={imgSmall1x} 
                srcSet={`${getImageUrl(baseImageName, 'small', '1')} 1x, ${getImageUrl(baseImageName, 'small', '2')} 2x`}
                alt={title} 
-               loading="lazy" // <--- OPTIMIZACIÓN AVANZADA AQUÍ
+               loading="lazy" 
                className="w-full h-full object-cover grayscale transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:grayscale-0" 
              />
            </picture>
@@ -44,10 +44,10 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
         </div>
       )}
 
-      {/* 2. CONTENIDO SUPERPUESTO */}
+      
       <div className="relative z-10 flex flex-col h-full pointer-events-none">
         
-        {/* BANDA DE TEXTO */}
+        
         <div className="mt-20 w-full bg-black/80 p-8 backdrop-blur-sm transition-colors duration-300">
             <h3 className="text-3xl sm:text-4xl font-extrabold mb-1 leading-none tracking-tight text-white uppercase drop-shadow-lg font-h3">
               {title}
@@ -57,7 +57,7 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
             </p>
         </div>
 
-        {/* BOTÓN - Estilo Blanco/Negro original */}
+       
         <div className="mt-auto pb-12 flex justify-center pointer-events-auto">
           <button 
             className="

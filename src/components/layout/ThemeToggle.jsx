@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const ThemeToggle = () => {
-  // 1. Inicializamos el estado consultando localStorage
+ 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });

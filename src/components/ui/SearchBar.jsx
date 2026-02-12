@@ -1,10 +1,10 @@
 const SearchBar = () => {
-  // Usamos el color de acento para el borde y el fondo del input dinámico
+  
   const borderClass = "border-border-main-light dark:border-border-main-dark";
 
   return (
     <div className="relative flex items-center w-full max-w-md group">
-      {/* ICONO LUPA - Usando color de texto dinámico */}
+      
       <div className="absolute left-4 text-text-primary-dark dark:text-text-primary-light opacity-60 group-focus-within:opacity-100 transition-opacity">
         🔍
       </div>
@@ -26,7 +26,7 @@ const SearchBar = () => {
         `}
       />
 
-      {/* ICONO FLECHA - Cambia a color de acento al enfocar */}
+      
       <div className="absolute right-4 text-text-primary-dark dark:text-text-primary-light opacity-60 group-focus-within:text-brand-accent group-focus-within:opacity-100 transition-all">
         →
       </div>
