@@ -59,8 +59,9 @@ const Noticias = () => {
             
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="flex flex-col justify-center">
               <div className="flex gap-2 mb-4">
-                <motion.span whileHover={{ backgroundColor: "#FF4500", color: "#fff" }} className="px-3 py-1 border border-border-main-light dark:border-border-main-dark text-label-bold uppercase text-black dark:text-white cursor-pointer transition-colors">Estrategia</motion.span>
-                <motion.span whileHover={{ backgroundColor: "#FF4500", color: "#fff" }} className="px-3 py-1 border border-border-main-light dark:border-border-main-dark text-label-bold uppercase text-black dark:text-white cursor-pointer transition-colors">I.A.</motion.span>
+                {/* ETIQUETAS ESTÁTICAS - Sin hover de color */}
+                <span className="px-3 py-1 border border-border-main-light dark:border-border-main-dark text-label-bold uppercase text-black dark:text-white transition-colors">Estrategia</span>
+                <span className="px-3 py-1 border border-border-main-light dark:border-border-main-dark text-label-bold uppercase text-black dark:text-white transition-colors">I.A.</span>
               </div>
               <h2 className="text-3xl md:text-h3 font-black uppercase leading-none mb-6 text-black dark:text-white">EL FUTURO DEL DISEÑO IMPULSADO POR DATOS</h2>
               <p className="text-body-default font-light opacity-60 mb-8 text-black dark:text-white leading-relaxed uppercase">

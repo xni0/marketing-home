@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState('light');
+  // 1. Inicializamos el estado consultando localStorage
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
 
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark'); // Guardamos la elección
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light'); // Guardamos la elección
     }
   }, [theme]);
 
@@ -15,7 +20,6 @@ const ThemeToggle = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
-  // Tokens de Figma para coherencia visual
   const borderClass = "border-border-main-light dark:border-border-main-dark";
 
   return (

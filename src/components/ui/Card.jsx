@@ -6,7 +6,8 @@ const imagesGlob = import.meta.glob('../../assets/images/*.{png,jpg,jpeg,webp}',
 const getImageUrl = (baseName, size, density) => {
   const fileName = `${baseName}-${size}-${density}x.jpg`;
   for (const path in imagesGlob) {
-    if (path.includes(fileName)) {
+    // Usamos toLowerCase para que la búsqueda sea más robusta
+    if (path.toLowerCase().includes(fileName.toLowerCase())) {
       return imagesGlob[path];
     }
   }
@@ -19,7 +20,7 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
   return (
     <div className="relative w-full h-full min-h-[500px] overflow-hidden group border-none bg-bg-primary-dark font-sans shadow-2xl">
       
-      {/* 1. IMAGEN DE FONDO */}
+      {/* 1. IMAGEN DE FONDO OPTIMIZADA */}
       {baseImageName && imgSmall1x ? (
         <div 
           className="absolute inset-0 z-0 cursor-pointer"
@@ -32,13 +33,14 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
                src={imgSmall1x} 
                srcSet={`${getImageUrl(baseImageName, 'small', '1')} 1x, ${getImageUrl(baseImageName, 'small', '2')} 2x`}
                alt={title} 
+               loading="lazy" // <--- OPTIMIZACIÓN AVANZADA AQUÍ
                className="w-full h-full object-cover grayscale transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:grayscale-0" 
              />
            </picture>
         </div>
       ) : (
         <div className="absolute inset-0 z-0 bg-bg-secondary-dark flex items-center justify-center">
-            <span className="text-text-secondary-dark text-xs uppercase tracking-widest font-bold">Image Not Found</span>
+            <span className="text-text-secondary-dark text-xs uppercase tracking-widest font-black">Image Not Found</span>
         </div>
       )}
 
@@ -55,7 +57,7 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
             </p>
         </div>
 
-        {/* BOTÓN - Recuperado el estilo Blanco/Negro original */}
+        {/* BOTÓN - Estilo Blanco/Negro original */}
         <div className="mt-auto pb-12 flex justify-center pointer-events-auto">
           <button 
             className="
