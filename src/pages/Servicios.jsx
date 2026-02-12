@@ -6,9 +6,18 @@ const Servicios = () => {
   const accentColor = "text-brand-accent";
   const accentBorder = "border-brand-accent";
 
-  // --- LÓGICA DE ACTIVOS (Sin cambios) ---
-  const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { eager: true, as: 'url' });
-  const iconsGlob = import.meta.glob('../assets/icons/*.svg', { eager: true, as: 'url' });
+  // --- LÓGICA DE ACTIVOS ACTUALIZADA (Vite 5+ Syntax) ---
+  const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { 
+    eager: true, 
+    query: '?url', 
+    import: 'default' 
+  });
+  
+  const iconsGlob = import.meta.glob('../assets/icons/*.svg', { 
+    eager: true, 
+    query: '?url', 
+    import: 'default' 
+  });
   
   const getIcon = (name) => iconsGlob[`../assets/icons/${name}.svg`];
 
@@ -28,7 +37,7 @@ const Servicios = () => {
     <main className="px-2 md:px-3 bg-bg-primary-light dark:bg-bg-primary-dark transition-colors duration-300">
       <div className={`w-full border-x border-b border-[1px] ${borderClass} overflow-hidden`}>
         
-        {/* 1. CABECERA - Corregido text-black para modo light */}
+        {/* 1. CABECERA */}
         <motion.section 
           initial="hidden"
           whileInView="visible"
@@ -72,7 +81,6 @@ const Servicios = () => {
               <div className="p-8 flex flex-col justify-between flex-grow bg-bg-primary-light dark:bg-bg-primary-dark transition-colors">
                 <div>
                   <div className="flex items-center gap-4 mb-4">
-                    {/* Texto corregido a negro/blanco puro */}
                     <h3 className="text-h3 font-black uppercase tracking-tight text-black dark:text-white">{s.title}</h3>
                     <img src={getIcon(s.icon)} alt="" className="w-6 h-6 object-contain dark:invert" />
                   </div>
@@ -88,8 +96,8 @@ const Servicios = () => {
           ))}
         </section>
 
-        {/* 3. MÉTRICAS - Inversión de color corregida */}
-        <section className="bg-bg-primary-light dark:bg-bg-primary-dark py-20 px-8 md:px-20 border-t-[1px] ${borderClass}">
+        {/* 3. MÉTRICAS */}
+        <section className={`bg-bg-primary-light dark:bg-bg-primary-dark py-20 px-8 md:px-20 border-t-[1px] ${borderClass}`}>
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-around gap-12 md:gap-8 mb-20">
             {[
               { num: "+50", txt: "Empresas confían", icon: 'mdi_company' },

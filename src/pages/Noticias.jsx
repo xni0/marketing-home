@@ -4,8 +4,12 @@ const Noticias = () => {
   const borderClass = "border-border-main-light dark:border-border-main-dark";
   const accentColor = "text-brand-accent";
 
-  // --- MOTOR DE ACTIVOS ---
-  const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { eager: true, as: 'url' });
+  // --- MOTOR DE ACTIVOS ACTUALIZADO (Vite 5+ Syntax) ---
+  const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { 
+    eager: true, 
+    query: '?url', 
+    import: 'default' 
+  });
   
   const NewsPicture = ({ articleNum, alt, className }) => {
     const base = `../assets/images/news-article-${articleNum}`;
@@ -59,7 +63,6 @@ const Noticias = () => {
             
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="flex flex-col justify-center">
               <div className="flex gap-2 mb-4">
-                {/* ETIQUETAS ESTÁTICAS - Sin hover de color */}
                 <span className="px-3 py-1 border border-border-main-light dark:border-border-main-dark text-label-bold uppercase text-black dark:text-white transition-colors">Estrategia</span>
                 <span className="px-3 py-1 border border-border-main-light dark:border-border-main-dark text-label-bold uppercase text-black dark:text-white transition-colors">I.A.</span>
               </div>
@@ -74,7 +77,7 @@ const Noticias = () => {
           </div>
         </section>
 
-        {/* 2. BARRA SEPARADORA - AHORA ESTÁTICA */}
+        {/* 2. BARRA SEPARADORA */}
         <div className="bg-black dark:bg-white text-white dark:text-black py-2 text-center text-label-bold uppercase tracking-[0.5em] overflow-hidden">
           ÚLTIMAS TENDENCIAS
         </div>

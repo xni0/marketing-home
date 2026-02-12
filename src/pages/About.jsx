@@ -6,8 +6,13 @@ const About = () => {
   const borderClass = "border-border-main-light dark:border-border-main-dark";
   const accentColor = "text-brand-accent";
 
-  // --- LÓGICA DE IMÁGENES ---
-  const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { eager: true, as: 'url' });
+  // --- LÓGICA DE IMÁGENES ACTUALIZADA (Vite 5+ Syntax) ---
+  const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { 
+    eager: true, 
+    query: '?url', 
+    import: 'default' 
+  });
+
   const getOptimizedSrc = (baseName, size = 'large') => {
     const path1x = `../assets/images/${baseName}-${size}-1x.jpg`;
     const path2x = `../assets/images/${baseName}-${size}-2x.jpg`;
@@ -32,7 +37,7 @@ const About = () => {
     <main className="px-2 md:px-3 bg-bg-primary-light dark:bg-bg-primary-dark transition-colors duration-300">
       <div className={`w-full border-x border-b border-[1px] ${borderClass} rounded-none overflow-hidden`}>
         
-        {/* 1. SECCIÓN HERO - CORREGIDA PARA MODO OSCURO */}
+        {/* 1. SECCIÓN HERO */}
         <section className={`relative flex flex-col md:flex-row border-b-[1px] ${borderClass} min-h-[500px] overflow-hidden bg-bg-primary-light dark:bg-bg-primary-dark`}>
           <motion.div 
             initial="hidden"
@@ -64,7 +69,6 @@ const About = () => {
               className="w-full h-full object-cover grayscale brightness-100 dark:brightness-75" 
               loading="eager" 
             />
-            {/* Gradientes suavizados para no tapar la imagen en dark mode */}
             <div className="absolute inset-0 bg-gradient-to-r from-bg-primary-light via-bg-primary-light/10 to-transparent dark:from-bg-primary-dark dark:via-bg-primary-dark/30 dark:to-transparent hidden md:block"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-bg-primary-light/60 via-transparent to-transparent dark:from-bg-primary-dark/80 md:hidden"></div>
           </motion.div>
