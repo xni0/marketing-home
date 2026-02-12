@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion'; // Importamos motion para las animaciones
+import { motion } from 'framer-motion'; 
 import Card from '../components/ui/Card';
 
 // Imports de video
@@ -7,8 +7,9 @@ import heroVideoMp4 from '../assets/videos/Nexo_video_hero.mp4';
 import heroVideoWebm from '../assets/videos/Nexo_video_hero.webm';
 
 const Home = () => {
-  const borderClass = "border-black dark:border-white";
-  const accentBg = "bg-[#FF4500]";
+  // Variables de sistema aplicadas sin cambiar el grosor ni el color visual
+  const borderClass = "border-border-main-light dark:border-border-main-dark";
+  const accentBg = "bg-brand-accent";
 
   // --- LÓGICA DE MODAL E IMÁGENES ---
   const [modalOpen, setModalOpen] = useState(false);
@@ -62,16 +63,15 @@ const Home = () => {
   ];
   const carouselLogos = [...logosBase, ...logosBase, ...logosBase];
 
-  // Variantes de animación reutilizables
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
   return (
-    <main className="w-full bg-white dark:bg-black transition-colors duration-300">
+    <main className="w-full bg-bg-primary-light dark:bg-bg-primary-dark transition-colors duration-300">
       
-      {/* 1. HERO SECTION (ANIMACIÓN DE ENTRADA) */}
+      {/* 1. HERO SECTION */}
       <motion.section 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -87,19 +87,19 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* 2. HEADER CARDS (ANIMACIÓN AL HACER SCROLL) */}
+      {/* 2. HEADER CARDS - Respetando py-4 y font-bold 2xl original */}
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="py-4 text-center bg-[#EFEFEF] dark:bg-neutral-900 text-black dark:text-white font-bold text-2xl uppercase tracking-tight border-b border-white dark:border-black transition-colors"
+        className="py-4 text-center bg-bg-secondary-light dark:bg-bg-secondary-dark text-black dark:text-white font-bold text-2xl uppercase tracking-tight border-b border-white dark:border-black transition-colors"
       >
           <h2>Servicios Destacados</h2>
       </motion.div>
 
-      {/* 3. GRID CARDS (ENTRADA ESCALONADA) */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 bg-white dark:bg-black border-b border-white dark:border-black">
+      {/* 3. GRID CARDS - Manteniendo gap-1 y bg-white/black */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 bg-bg-primary-light dark:bg-bg-primary-dark border-b border-white dark:border-black">
           {cardsData.map((item, i) => (
             <motion.div 
               key={item.id} 
@@ -120,17 +120,17 @@ const Home = () => {
           ))}
       </section>
       
-      {/* 4. VER MÁS PROYECTOS */}
+      {/* 4. VER MÁS PROYECTOS - Respetando text-[10px] y py-2 */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="text-center py-2 text-[10px] font-bold uppercase bg-[#EFEFEF] dark:bg-neutral-900 text-black dark:text-white tracking-widest border-b border-black dark:border-white flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-neutral-800 transition-colors"
+        className="text-center py-2 text-[10px] font-bold uppercase bg-bg-secondary-light dark:bg-bg-secondary-dark text-black dark:text-white tracking-widest border-b border-black dark:border-white flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-neutral-800 transition-colors"
       >
         Ver todos los proyectos <span className="text-lg">👁</span>
       </motion.div>
 
-      {/* 5. DARK/LIGHT SECTION (FILOSOFÍA MARCA) */}
+      {/* 5. DARK/LIGHT SECTION - Respetando text-4xl/5xl y p-12/20 */}
       <section className={`grid grid-cols-1 md:grid-cols-2 w-full border-b ${borderClass} bg-black text-white dark:bg-white dark:text-black transition-colors duration-300`}>
           <motion.div 
             initial="hidden"
@@ -169,7 +169,7 @@ const Home = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="py-20 sm:py-28 bg-white dark:bg-black transition-colors duration-300 overflow-hidden border-b border-black dark:border-white"
+        className="py-20 sm:py-28 bg-bg-primary-light dark:bg-bg-primary-dark transition-colors duration-300 overflow-hidden border-b border-black dark:border-white"
       >
             <div className="text-center mb-16 px-4">
                 <span className="italic text-lg font-serif border-b border-black dark:border-white pb-1 inline-block text-black dark:text-white transition-colors duration-300">
@@ -178,10 +178,10 @@ const Home = () => {
             </div>
             
             <div className="relative w-full flex overflow-hidden">
-               <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
-               <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-bg-primary-light dark:from-bg-primary-dark to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-bg-primary-light dark:from-bg-primary-dark to-transparent z-10 pointer-events-none"></div>
 
-               <div className="flex items-center gap-16 animate-scroll whitespace-nowrap min-w-full">
+                <div className="flex items-center gap-16 animate-scroll whitespace-nowrap min-w-full">
                   {carouselLogos.map((logoSrc, index) => (
                       <div key={index} className="flex-shrink-0 w-32 h-20 flex items-center justify-center">
                           <img
@@ -191,11 +191,11 @@ const Home = () => {
                           />
                       </div>
                   ))}
-               </div>
+                </div>
             </div>
       </motion.section>
 
-      {/* 7. MODAL (CON ANIMACIÓN DE ESCALA) */}
+      {/* 7. MODAL */}
       {modalOpen && selectedImage && (
         <motion.div 
           initial={{ opacity: 0 }}
@@ -209,7 +209,7 @@ const Home = () => {
             className="relative max-w-6xl w-full flex flex-col items-center" 
             onClick={(e) => e.stopPropagation()}
           >
-            <button onClick={closeModal} className="absolute -top-12 right-0 text-white text-5xl font-thin hover:text-[#FF4500] transition-colors">✕</button>
+            <button onClick={closeModal} className="absolute -top-12 right-0 text-white text-5xl font-thin hover:text-brand-accent transition-colors">✕</button>
             <img 
               src={selectedImage.src} 
               srcSet={selectedImage.srcSet} 
