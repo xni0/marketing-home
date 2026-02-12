@@ -2,16 +2,16 @@ import { useState } from 'react';
 import { motion } from 'framer-motion'; 
 import Card from '../components/ui/Card';
 
-// Imports de video
+
 import heroVideoMp4 from '../assets/videos/Nexo_video_hero.mp4';
 import heroVideoWebm from '../assets/videos/Nexo_video_hero.webm';
 
 const Home = () => {
-  // Variables de sistema aplicadas sin cambiar el grosor ni el color visual
+  
   const borderClass = "border-border-main-light dark:border-border-main-dark";
   const accentBg = "bg-brand-accent";
 
-  // --- LÓGICA DE MODAL E IMÁGENES ---
+  
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { eager: true, as: 'url' });
@@ -43,7 +43,7 @@ const Home = () => {
     setSelectedImage(null);
   };
 
-  // --- DATOS ---
+  
   const cardsData = [
     { id: 1, title: "Web Design", sub: "Diseño de interfaces", baseImage: "home-design-2" },
     { id: 2, title: "Marketing", sub: "Estrategias digitales", baseImage: "home-marketing-2" },
@@ -71,7 +71,7 @@ const Home = () => {
   return (
     <main className="w-full bg-bg-primary-light dark:bg-bg-primary-dark transition-colors duration-300">
       
-      {/* 1. HERO SECTION */}
+     
       <motion.section 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -87,7 +87,7 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* 2. HEADER CARDS - Respetando py-4 y font-bold 2xl original */}
+     
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -98,7 +98,7 @@ const Home = () => {
           <h2>Servicios Destacados</h2>
       </motion.div>
 
-      {/* 3. GRID CARDS - Manteniendo gap-1 y bg-white/black */}
+      
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 bg-bg-primary-light dark:bg-bg-primary-dark border-b border-white dark:border-black">
           {cardsData.map((item, i) => (
             <motion.div 
@@ -120,7 +120,7 @@ const Home = () => {
           ))}
       </section>
       
-      {/* 4. VER MÁS PROYECTOS - Respetando text-[10px] y py-2 */}
+      
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -130,7 +130,7 @@ const Home = () => {
         Ver todos los proyectos <span className="text-lg">👁</span>
       </motion.div>
 
-      {/* 5. DARK/LIGHT SECTION - Respetando text-4xl/5xl y p-12/20 */}
+      
       <section className={`grid grid-cols-1 md:grid-cols-2 w-full border-b ${borderClass} bg-black text-white dark:bg-white dark:text-black transition-colors duration-300`}>
           <motion.div 
             initial="hidden"
@@ -163,7 +163,7 @@ const Home = () => {
           </motion.div>
       </section>
 
-      {/* 6. CAROUSEL SECTION */}
+      
       <motion.section 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -195,7 +195,7 @@ const Home = () => {
             </div>
       </motion.section>
 
-      {/* 7. MODAL */}
+      
       {modalOpen && selectedImage && (
         <motion.div 
           initial={{ opacity: 0 }}

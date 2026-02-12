@@ -4,7 +4,7 @@ const Noticias = () => {
   const borderClass = "border-border-main-light dark:border-border-main-dark";
   const accentColor = "text-brand-accent";
 
-  // --- MOTOR DE ACTIVOS ACTUALIZADO (Vite 5+ Syntax) ---
+  
   const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { 
     eager: true, 
     query: '?url', 
@@ -24,7 +24,7 @@ const Noticias = () => {
     );
   };
 
-  // Variantes personalizadas
+  
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.215, 0.61, 0.355, 1] } }
@@ -77,12 +77,12 @@ const Noticias = () => {
           </div>
         </section>
 
-        {/* 2. BARRA SEPARADORA */}
+        
         <div className="bg-black dark:bg-white text-white dark:text-black py-2 text-center text-label-bold uppercase tracking-[0.5em] overflow-hidden">
           ÚLTIMAS TENDENCIAS
         </div>
 
-        {/* 3. REJILLA SECUNDARIA */}
+        
         <section className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x border-b border-border-main-light dark:border-border-main-dark">
           {[
             { title: "CULTURA AGENCIA", tag: "Workshops", art: "2" },
@@ -112,7 +112,7 @@ const Noticias = () => {
           ))}
         </section>
 
-        {/* 4. LISTADO CON INTERACCIÓN MAGNÉTICA */}
+        
         <section className="bg-bg-primary-light dark:bg-bg-primary-dark">
           {[
             { tag: "Web", title: "CÓMO OPTIMIZAR EL RENDIMIENTO EN REACT V19", num: "01" },
@@ -152,7 +152,7 @@ const Noticias = () => {
           ))}
         </section>
 
-        {/* 5. PAGINACIÓN */}
+        
         <div className="py-10 flex justify-center items-center gap-6 text-label-bold font-black uppercase opacity-50 tracking-widest border-b border-border-main-light dark:border-border-main-dark text-black dark:text-white">
           <motion.span whileHover={{ x: -5 }} className="cursor-pointer hover:text-brand-accent transition-colors">‹ Anterior</motion.span>
           <span className="cursor-pointer">1</span>

@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 
 const Servicios = () => {
-  // Aplicamos tokens de borde y acento del sistema
+  
   const borderClass = "border-border-main-light dark:border-border-main-dark";
   const accentColor = "text-brand-accent";
   const accentBorder = "border-brand-accent";
 
-  // --- LÓGICA DE ACTIVOS ACTUALIZADA (Vite 5+ Syntax) ---
+  
   const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { 
     eager: true, 
     query: '?url', 
@@ -53,7 +53,7 @@ const Servicios = () => {
           </p>
         </motion.section>
 
-        {/* 2. REJILLA OPTIMIZADA */}
+        
         <section className="grid grid-cols-1 md:grid-cols-2">
           {serviciosList.map((s, idx) => (
             <motion.div 
@@ -96,7 +96,7 @@ const Servicios = () => {
           ))}
         </section>
 
-        {/* 3. MÉTRICAS */}
+       
         <section className={`bg-bg-primary-light dark:bg-bg-primary-dark py-20 px-8 md:px-20 border-t-[1px] ${borderClass}`}>
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-around gap-12 md:gap-8 mb-20">
             {[

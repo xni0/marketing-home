@@ -6,7 +6,7 @@ const About = () => {
   const borderClass = "border-border-main-light dark:border-border-main-dark";
   const accentColor = "text-brand-accent";
 
-  // --- LÓGICA DE IMÁGENES ACTUALIZADA (Vite 5+ Syntax) ---
+  
   const imagesGlob = import.meta.glob('../assets/images/*.{png,jpg,jpeg,webp}', { 
     eager: true, 
     query: '?url', 
@@ -37,7 +37,7 @@ const About = () => {
     <main className="px-2 md:px-3 bg-bg-primary-light dark:bg-bg-primary-dark transition-colors duration-300">
       <div className={`w-full border-x border-b border-[1px] ${borderClass} rounded-none overflow-hidden`}>
         
-        {/* 1. SECCIÓN HERO */}
+        
         <section className={`relative flex flex-col md:flex-row border-b-[1px] ${borderClass} min-h-[500px] overflow-hidden bg-bg-primary-light dark:bg-bg-primary-dark`}>
           <motion.div 
             initial="hidden"
@@ -74,7 +74,7 @@ const About = () => {
           </motion.div>
         </section>
 
-        {/* 2. SECCIÓN EQUIPO */}
+        
         <section className={`py-16 md:py-24 px-6 md:px-12 border-b-[1px] ${borderClass}`}>
           <motion.div 
             initial="hidden"
@@ -116,7 +116,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* 3. SECCIÓN FILOSOFÍA */}
+        
         <section className={`grid grid-cols-1 md:grid-cols-2 border-b-[1px] ${borderClass} bg-bg-primary-light dark:bg-bg-primary-dark relative transition-colors duration-300`}>
           <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05] pointer-events-none" style={{ backgroundImage: `linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)`, backgroundSize: '30px 30px' }}></div>
 
@@ -158,7 +158,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* 4. SECCIÓN CTA FINAL */}
+        
         <section className="relative h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden bg-black text-white p-12 md:p-24 text-center">
           <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale" poster={heroImg.src} >
             <source src={heroVideoWebm} type="video/webm" />

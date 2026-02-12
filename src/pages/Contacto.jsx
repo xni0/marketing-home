@@ -14,7 +14,7 @@ const Contacto = () => {
     <main className="bg-bg-primary-light dark:bg-bg-primary-dark transition-colors duration-300 font-sans">
       <div className={`w-full border-b border-[1px] ${borderClass} overflow-hidden`}>
         
-        {/* 1. CABECERA */}
+        
         <section className={`p-8 md:p-16 border-b-[1px] ${borderClass}`}>
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="flex flex-col md:flex-row justify-between items-baseline gap-4">
             <h1 className="text-6xl md:text-9xl font-black uppercase tracking-tighter text-black dark:text-white leading-none">
@@ -26,7 +26,7 @@ const Contacto = () => {
           </motion.div>
         </section>
 
-        {/* 2. FORMULARIO */}
+        
         <section className={`p-8 md:p-16 border-b-[1px] ${borderClass} bg-bg-secondary-light dark:bg-bg-secondary-dark/20`}>
           <form className="max-w-4xl mx-auto space-y-12">
             {[
@@ -57,7 +57,7 @@ const Contacto = () => {
               </motion.div>
             ))}
             
-            {/* BOTÓN CORREGIDO: En dark mode hace hover a blanco, en light mode hace hover a negro */}
+            
             <motion.button 
               whileHover={{ scale: 1.01 }} 
               whileTap={{ scale: 0.99 }}
@@ -68,13 +68,13 @@ const Contacto = () => {
           </form>
         </section>
 
-        {/* 3. BARRA SEPARADORA */}
+        
         <div className="bg-black dark:bg-white text-white dark:text-black py-3 px-8 text-left text-[10px] font-black uppercase tracking-[0.5em] flex justify-between items-center border-b ${borderClass}">
           <span>LOCALIZACIÓN Y DATOS</span>
           <span className="text-2xl opacity-80 cursor-default">⚲</span>
         </div>
 
-        {/* 4. REJILLA DE DATOS Y MAPA */}
+        
         <section className="grid grid-cols-1 md:grid-cols-3 w-full border-b ${borderClass} items-stretch bg-bg-primary-light dark:bg-bg-primary-dark">
           
           <div className={`border-b md:border-b-0 md:border-r ${borderClass} flex flex-col`}>
