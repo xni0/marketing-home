@@ -9,7 +9,7 @@ import Footer from './components/layout/Footer';
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
      
       <div className="min-h-screen bg-black dark:bg-white p-2 md:p-4 transition-colors duration-500">
         
@@ -20,7 +20,7 @@ function App() {
           
           <div className="flex-grow">
             <Routes>
-              <Route path="/marketing-home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/nosotros" element={<About />} />
               <Route path="/servicios" element={<Servicios />} />
               <Route path="/noticias" element={<Noticias />} />
@@ -32,7 +32,7 @@ function App() {
           
         </div>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
