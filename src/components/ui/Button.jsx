@@ -1,18 +1,27 @@
 import PropTypes from 'prop-types';
 
 const Button = ({ children, variant = 'solid', className = '', ...props }) => {
-  const baseStyles = "px-8 py-3 font-medium transition-all duration-300 flex items-center justify-center gap-2 text-body uppercase tracking-wider";
+  const baseStyles = "px-8 py-4 text-label-bold transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-[0.2em] border";
   
   const variants = {
-    // Estilo negro sólido (como en tus cards)
-    solid: "bg-nexo-primary text-white hover:bg-nexo-accent border border-transparent dark:bg-white dark:text-nexo-primary",
+    solid: `
+      bg-brand-accent text-white border-brand-accent 
+      hover:bg-black hover:border-black 
+      dark:hover:bg-white dark:hover:text-black dark:hover:border-white
+    `,
     
-    // Estilo borde (como en tu Hero)
-    outline: "bg-transparent border border-nexo-primary text-nexo-primary hover:bg-nexo-primary hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-nexo-primary"
+    outline: `
+      bg-transparent border-border-main-light text-text-primary-dark 
+      dark:border-border-main-dark dark:text-text-primary-light 
+      hover:bg-brand-accent hover:border-brand-accent hover:text-white
+    `
   };
 
   return (
-    <button className={`${baseStyles} ${variants[variant]} ${className}`} {...props}>
+    <button 
+      className={`${baseStyles} ${variants[variant]} ${className}`} 
+      {...props}
+    >
       {children}
     </button>
   );

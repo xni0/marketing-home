@@ -17,7 +17,7 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
   const imgSmall1x = getImageUrl(baseImageName, 'small', '1');
   
   return (
-    <div className="relative w-full h-full min-h-[500px] overflow-hidden group border-none bg-gray-900 font-sans shadow-2xl">
+    <div className="relative w-full h-full min-h-[500px] overflow-hidden group border-none bg-bg-primary-dark font-sans shadow-2xl">
       
       {/* 1. IMAGEN DE FONDO */}
       {baseImageName && imgSmall1x ? (
@@ -37,8 +37,8 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
            </picture>
         </div>
       ) : (
-        <div className="absolute inset-0 z-0 bg-gray-800 flex items-center justify-center">
-            <span className="text-gray-500 text-xs uppercase tracking-widest font-bold">Image Not Found</span>
+        <div className="absolute inset-0 z-0 bg-bg-secondary-dark flex items-center justify-center">
+            <span className="text-text-secondary-dark text-xs uppercase tracking-widest font-bold">Image Not Found</span>
         </div>
       )}
 
@@ -47,29 +47,29 @@ const Card = ({ title, subtitle, baseImageName, onImageClick }) => {
         
         {/* BANDA DE TEXTO */}
         <div className="mt-20 w-full bg-black/80 p-8 backdrop-blur-sm transition-colors duration-300">
-            <h3 className="text-3xl sm:text-4xl font-extrabold mb-1 leading-none tracking-tight text-white uppercase drop-shadow-lg">
-            {title}
+            <h3 className="text-3xl sm:text-4xl font-extrabold mb-1 leading-none tracking-tight text-white uppercase drop-shadow-lg font-h3">
+              {title}
             </h3>
-            <p className="text-sm sm:text-base font-medium opacity-90 text-gray-200 tracking-widest uppercase">
-            {subtitle}
+            <p className="text-sm sm:text-base font-medium opacity-90 text-gray-200 tracking-widest uppercase font-label-bold">
+              {subtitle}
             </p>
         </div>
 
-        {/* BOTÓN CON HOVER INVERTIDO */}
+        {/* BOTÓN - Recuperado el estilo Blanco/Negro original */}
         <div className="mt-auto pb-12 flex justify-center pointer-events-auto">
-          <Button 
-            variant="primary" 
+          <button 
             className="
               font-sans 
-              bg-black text-white border border-black 
+              bg-black text-white border border-white/20 
               hover:bg-white hover:text-black hover:border-white 
               text-[10px] font-bold py-4 px-10 
               transition-all duration-300 rounded-none w-auto 
               uppercase tracking-[0.25em] shadow-xl
             "
+            onClick={() => onImageClick(baseImageName, title, subtitle)}
           >
             Ver Proyecto &rarr;
-          </Button>
+          </button>
         </div>
 
       </div>
